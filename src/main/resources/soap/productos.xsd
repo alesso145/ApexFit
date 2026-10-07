@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://example.org/gym/productos"
+           xmlns:tns="http://example.org/gym/productos"
+           elementFormDefault="qualified">
+
+    <xs:element name="listarProductosRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="usuario" type="xs:string" minOccurs="0"/>
+                <xs:element name="password" type="xs:string" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="listarProductosResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="producto" type="tns:productoSoap" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="buscarProductoRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="usuario" type="xs:string" minOccurs="0"/>
+                <xs:element name="password" type="xs:string" minOccurs="0"/>
+                <xs:element name="idProducto" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="buscarProductoResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="producto" type="tns:productoSoap" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="registrarIngresoStockRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="usuario" type="xs:string" minOccurs="0"/>
+                <xs:element name="password" type="xs:string" minOccurs="0"/>
+                <xs:element name="idProducto" type="xs:int" minOccurs="0"/>
+                <xs:element name="nombre" type="xs:string"/>
+                <xs:element name="descripcion" type="xs:string" minOccurs="0"/>
+                <xs:element name="precioUnitario" type="xs:decimal" minOccurs="0"/>
+                <xs:element name="cantidad" type="xs:int"/>
+                <xs:element name="proveedor" type="xs:string" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="registrarIngresoStockResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="exito" type="xs:boolean"/>
+                <xs:element name="mensaje" type="xs:string"/>
+                <xs:element name="producto" type="tns:productoSoap"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="productoSoap">
+        <xs:sequence>
+            <xs:element name="idProducto" type="xs:int" minOccurs="0"/>
+            <xs:element name="nombre" type="xs:string" minOccurs="0"/>
+            <xs:element name="descripcion" type="xs:string" minOccurs="0"/>
+            <xs:element name="precio" type="xs:decimal" minOccurs="0"/>
+            <xs:element name="stock" type="xs:int" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

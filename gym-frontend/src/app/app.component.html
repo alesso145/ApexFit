@@ -1,0 +1,7 @@
+<div class="app-container" [class.login-layout]="esLogin()">
+  <app-sidebar *ngIf="!esLogin()"></app-sidebar>
+  <app-notificaciones *ngIf="!esLogin()"></app-notificaciones>
+  <main class="main-content" [class.login-content]="esLogin()">
+    <router-outlet></router-outlet>
+  </main>
+</div>

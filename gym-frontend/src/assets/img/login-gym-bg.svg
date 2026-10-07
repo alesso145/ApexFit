@@ -1,0 +1,17 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+<defs>
+<linearGradient id="bg" x1="0" x2="1">
+<stop offset="0%" stop-color="#050816"/>
+<stop offset="100%" stop-color="#1a0b38"/>
+</linearGradient>
+</defs>
+<rect width="1600" height="900" fill="url(#bg)"/>
+<circle cx="250" cy="180" r="120" fill="#7c3aed" opacity=".15"/>
+<rect x="80" y="500" width="280" height="30" rx="10" fill="#8b5cf6" opacity=".4"/>
+<rect x="1180" y="500" width="280" height="30" rx="10" fill="#8b5cf6" opacity=".4"/>
+<rect x="350" y="510" width="900" height="12" fill="#8b5cf6" opacity=".35"/>
+<text x="220" y="320" fill="#ffffff" font-size="90" font-family="Arial" font-weight="bold">APEX</text>
+<text x="520" y="320" fill="#8b5cf6" font-size="90" font-family="Arial" font-weight="bold">FIT</text>
+<text x="220" y="380" fill="#ffffff" opacity=".8" font-size="35">ENTRENA TU MEJOR VERSION</text>
+</svg>

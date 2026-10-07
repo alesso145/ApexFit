@@ -1,0 +1,145 @@
+{
+    "proyecto": "GymCRUD_APEXFIT_UNIDO_FINAL",
+    "ruta": "C:\\Users\\Usuario\\Desktop\\Gimnasio proyecto\\GymCRUD_APEXFIT_UNIDO_FINAL",
+    "fecha": "2026-10-01T09:44:49.909392",
+    "estandar_referencia": "ISO/IEC 25010",
+    "lenguajes": {
+        "JSON": 13,
+        "XML": 6,
+        "HTML": 9,
+        "SQL": 4,
+        "JavaScript": 13,
+        "TypeScript": 22,
+        "CSS": 8,
+        "Java": 90
+    },
+    "codigo": {
+        "archivos": 165,
+        "lineas_totales": 84139,
+        "lineas_codigo": 74409,
+        "lineas_comentarios": 8108,
+        "funciones_aproximadas": 4395,
+        "clases_aproximadas": 401
+    },
+    "complejidad": {
+        "complejidad_ciclomatica_aproximada": 12412,
+        "decisiones": 12411
+    },
+    "seguridad": [
+        {
+            "archivo": "C:\\Users\\Usuario\\Desktop\\Gimnasio proyecto\\GymCRUD_APEXFIT_UNIDO_FINAL\\pom.xml",
+            "tipo": "HTTP no seguro",
+            "cantidad": 3
+        },
+        {
+            "archivo": "C:\\Users\\Usuario\\Desktop\\Gimnasio proyecto\\GymCRUD_APEXFIT_UNIDO_FINAL\\SQL_ACTUALIZAR_AULAS_Y_DATOS_DEMO.sql",
+            "tipo": "SQL potencialmente inseguro",
+            "cantidad": 5
+        },
+        {
+            "archivo": "C:\\Users\\Usuario\\Desktop\\Gimnasio proyecto\\GymCRUD_APEXFIT_UNIDO_FINAL\\gym-frontend\\.angular\\cache\\19.2.27\\gym-frontend\\vite\\deps\\chunk-7OFII6IX.js",
+            "tipo": "HTTP no seguro",
+            "cantidad": 7
+        },
+        {
+            "archivo": "C:\\Users\\Usuario\\Desktop\\Gimnasio proyecto\\GymCRUD_APEXFIT_UNIDO_FINAL\\gym-frontend\\.angular\\cache\\19.2.27\\gym-frontend\\vite\\deps\\chunk-EAAUV2ZZ.js",
+            "tipo": "Uso de exec",
+            "cantidad": 3
+        },
+        {
+            "archivo": "C:\\Users\\Usuario\\Desktop\\Gimnasio proyecto\\GymCRUD_APEXFIT_UNIDO_FINAL\\gym-frontend\\.angular\\cache\\19.2.27\\gym-frontend\\vite\\deps\\chunk-EAAUV2ZZ.js",
+            "tipo": "SQL potencialmente inseguro",
+            "cantidad": 39
+        },
+        {
+            "archivo": "C:\\Users\\Usuario\\Desktop\\Gimnasio proyecto\\GymCRUD_APEXFIT_UNIDO_FINAL\\gym-frontend\\.angular\\cache\\19.2.27\\gym-frontend\\vite\\deps\\chunk-EAAUV2ZZ.js",
+            "tipo": "HTTP no seguro",
+            "cantidad": 2
+        },
+        {
+            "archivo": "C:\\Users\\Usuario\\Desktop\\Gimnasio proyecto\\GymCRUD_APEXFIT_UNIDO_FINAL\\gym-frontend\\.angular\\cache\\19.2.27\\gym-frontend\\vite\\deps\\chunk-UMFPZN3X.js",
+            "tipo": "Uso de exec",
+            "cantidad": 1
+        },
+        {
+            "archivo": "C:\\Users\\Usuario\\Desktop\\Gimnasio proyecto\\GymCRUD_APEXFIT_UNIDO_FINAL\\gym-frontend\\.angular\\cache\\19.2.27\\gym-frontend\\vite\\deps\\chunk-UMFPZN3X.js",
+            "tipo": "SQL potencialmente inseguro",
+            "cantidad": 2
+        },
+        {
+            "archivo": "C:\\Users\\Usuario\\Desktop\\Gimnasio proyecto\\GymCRUD_APEXFIT_UNIDO_FINAL\\gym-frontend\\.angular\\cache\\19.2.27\\gym-frontend\\vite\\deps\\chunk-ZNCRG6OU.js",
+            "tipo": "SQL potencialmente inseguro",
+            "cantidad": 1
+        },
+        {
+            "archivo": "C:\\Users\\Usuario\\Desktop\\Gimnasio proyecto\\GymCRUD_APEXFIT_UNIDO_FINAL\\gym-frontend\\src\\styles.css",
+            "tipo": "HTTP no seguro",
+            "cantidad": 1
+        },
+        {
+            "archivo": "C:\\Users\\Usuario\\Desktop\\Gimnasio proyecto\\GymCRUD_APEXFIT_UNIDO_FINAL\\gym-frontend\\src\\app\\services\\auth.service.ts",
+            "tipo": "HTTP no seguro",
+            "cantidad": 1
+        },
+        {
+            "archivo": "C:\\Users\\Usuario\\Desktop\\Gimnasio proyecto\\GymCRUD_APEXFIT_UNIDO_FINAL\\gym-frontend\\src\\app\\services\\gym.service.ts",
+            "tipo": "HTTP no seguro",
+            "cantidad": 6
+        },
+        {
+            "archivo": "C:\\Users\\Usuario\\Desktop\\Gimnasio proyecto\\GymCRUD_APEXFIT_UNIDO_FINAL\\src\\main\\java\\org\\example\\config\\CorsConfig.java",
+            "tipo": "HTTP no seguro",
+            "cantidad": 1
+        },
+        {
+            "archivo": "C:\\Users\\Usuario\\Desktop\\Gimnasio proyecto\\GymCRUD_APEXFIT_UNIDO_FINAL\\src\\main\\java\\org\\example\\config\\WebServiceConfig.java",
+            "tipo": "HTTP no seguro",
+            "cantidad": 1
+        },
+        {
+            "archivo": "C:\\Users\\Usuario\\Desktop\\Gimnasio proyecto\\GymCRUD_APEXFIT_UNIDO_FINAL\\src\\main\\java\\org\\example\\security\\SecurityConfig.java",
+            "tipo": "HTTP no seguro",
+            "cantidad": 1
+        },
+        {
+            "archivo": "C:\\Users\\Usuario\\Desktop\\Gimnasio proyecto\\GymCRUD_APEXFIT_UNIDO_FINAL\\src\\main\\java\\org\\example\\soap\\config\\SoapEndpointPaths.java",
+            "tipo": "HTTP no seguro",
+            "cantidad": 1
+        }
+    ],
+    "dependencias": [
+        "C:\\Users\\Usuario\\Desktop\\Gimnasio proyecto\\GymCRUD_APEXFIT_UNIDO_FINAL\\package.json",
+        "C:\\Users\\Usuario\\Desktop\\Gimnasio proyecto\\GymCRUD_APEXFIT_UNIDO_FINAL\\pom.xml",
+        "C:\\Users\\Usuario\\Desktop\\Gimnasio proyecto\\GymCRUD_APEXFIT_UNIDO_FINAL\\gym-frontend\\package.json",
+        "C:\\Users\\Usuario\\Desktop\\Gimnasio proyecto\\GymCRUD_APEXFIT_UNIDO_FINAL\\gym-frontend\\.angular\\cache\\19.2.27\\gym-frontend\\vite\\deps\\package.json",
+        "C:\\Users\\Usuario\\Desktop\\Gimnasio proyecto\\GymCRUD_APEXFIT_UNIDO_FINAL\\gym-frontend\\.angular\\cache\\19.2.27\\gym-frontend\\vite\\deps_ssr\\package.json"
+    ],
+    "tests_detectados": [
+        "C:\\Users\\Usuario\\Desktop\\Gimnasio proyecto\\GymCRUD_APEXFIT_UNIDO_FINAL\\gym-frontend\\tsconfig.spec.json"
+    ],
+    "tests": [],
+    "rendimiento": {
+        "tiempo_analisis_ms": 42.45,
+        "datos_analizados_mb": 2.808,
+        "velocidad_lectura_mb_s": 66.15
+    },
+    "portabilidad": {
+        "sistema_operativo": "Windows",
+        "version_sistema": "10.0.19045",
+        "arquitectura": "AMD64",
+        "python": "3.11.0"
+    },
+    "calidad": {
+        "funcionalidad": 0,
+        "fiabilidad": 0,
+        "rendimiento": 100,
+        "seguridad": 0,
+        "mantenibilidad": 60.0,
+        "usabilidad": 100,
+        "portabilidad": 100,
+        "calidad_global": 44.0,
+        "densidad_hallazgos_seguridad": 0.215,
+        "complejidad_media": 2.82,
+        "duplicacion_lineas": 8582
+    }
+}

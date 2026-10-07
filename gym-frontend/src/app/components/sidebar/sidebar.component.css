@@ -1,0 +1,150 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 280px;
+  background: var(--bg-sidebar);
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 0;
+  z-index: 100;
+  overflow-y: auto;
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.5rem 2rem 1.5rem;
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  margin-bottom: 1.5rem;
+}
+
+.logo-icon {
+  width: 1.75rem;
+  height: 1.75rem;
+  color: var(--accent-primary);
+  filter: drop-shadow(0 0 8px rgba(99, 102, 241, 0.5));
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0 1rem;
+}
+
+.section-title {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  padding: 1.25rem 1rem 0.5rem 1rem;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  padding: 0.75rem 1rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.925rem;
+  font-weight: 500;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  transition: var(--transition-smooth);
+}
+
+.nav-link:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.05);
+}
+
+.nav-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  stroke-width: 2;
+  transition: var(--transition-smooth);
+}
+
+.nav-link:hover .nav-icon {
+  transform: translateX(2px);
+  color: var(--accent-primary);
+}
+
+/* Active navigation link */
+.nav-link.active {
+  background: var(--accent-gradient);
+  color: #ffffff;
+  box-shadow: 0 4px 18px 0 rgba(99, 102, 241, 0.35);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.nav-link.active .nav-icon {
+  color: #ffffff !important;
+  transform: none !important;
+}
+
+/* Custom scrollbar for sidebar */
+.sidebar::-webkit-scrollbar {
+  width: 4px;
+}
+.sidebar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 2px;
+}
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 102, 241, 0.3);
+}
+
+.logout-btn {
+  width: calc(100% - 2rem);
+  margin: 1rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  background: rgba(239, 68, 68, 0.12);
+  color: #fecaca;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.logout-btn:hover {
+  background: rgba(239, 68, 68, 0.22);
+  color: #ffffff;
+}
+
+.role-chip {
+  width: calc(100% - 2rem);
+  margin: auto 1rem 0.25rem 1rem;
+  padding: 0.7rem 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  background: rgba(99, 102, 241, 0.1);
+  color: var(--text-secondary);
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+/* Mantiene visible la parte inferior del menú sin afectar las rutas ni la lógica. */
+.nav-links {
+  flex: 1 1 auto;
+}
+.logout-btn,
+.role-chip {
+  flex-shrink: 0;
+}

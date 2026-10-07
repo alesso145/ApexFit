@@ -1,0 +1,51 @@
+<div class="animate-fade-in">
+  <div class="page-head"><h1>Punto de Venta</h1><p>Venta de productos y suplementos para clientes</p></div>
+  <div class="pos-container">
+    <section>
+      <div class="glass-card search-box"><span>⌕</span><input class="form-control" placeholder="Buscar productos en stock..." [(ngModel)]="filtroBusqueda" (input)="filtrarProductos()"></div>
+      <div class="product-grid">
+        <div class="glass-card product-card" *ngFor="let p of productosFiltrados">
+          <img [src]="imagenProducto(p)" [alt]="p.nombre" class="product-thumb">
+          <span class="badge" [ngClass]="p.stock>0?'badge-success':'badge-danger'">{{p.stock>0?'En stock ('+p.stock+')':'Agotado'}}</span>
+          <h3>{{p.nombre}}</h3><p>{{p.descripcion}}</p>
+          <div class="product-bottom"><strong>${{p.precio|number:'1.2-2'}}</strong><button class="btn btn-primary" [disabled]="p.stock<=0" (click)="agregarAlCarrito(p)">Añadir</button></div>
+        </div>
+        <div *ngIf="productosFiltrados.length===0" class="empty">No se encontraron productos.</div>
+      </div>
+    </section>
+
+    <section class="glass-card cart-panel">
+      <div class="cart-title"><h2>🛒 Carrito de Compra</h2><span class="badge badge-info">{{carrito.length}} items</span></div>
+      <div class="cart-list">
+        <div class="cart-item" *ngFor="let item of carrito">
+          <div><strong>{{item.producto.nombre}}</strong><small>${{item.producto.precio|number:'1.2-2'}} × {{item.cantidad}}</small></div>
+          <div class="quantity"><button (click)="cambiarCantidad(item,-1)">−</button><b>{{item.cantidad}}</b><button (click)="cambiarCantidad(item,1)">+</button></div>
+          <strong>${{item.producto.precio*item.cantidad|number:'1.2-2'}}</strong>
+        </div>
+        <div *ngIf="carrito.length===0" class="empty">El carrito está vacío.</div>
+      </div>
+
+      <div class="checkout">
+        <div class="form-group" *ngIf="esAdmin(); else clienteAuto">
+          <label class="form-label">Asignar a Cliente</label>
+          <select class="form-control" [(ngModel)]="seleccionClienteId" name="clienteId">
+            <option [ngValue]="null" disabled>-- Seleccionar Cliente --</option>
+            <option *ngFor="let c of clientes" [ngValue]="c.idCliente">{{c.nombre}} {{c.apellido}} ({{c.cedula}})</option>
+          </select>
+        </div>
+        <ng-template #clienteAuto><div class="form-group"><label class="form-label">Cliente</label><div class="form-control readonly">{{clienteActualTexto}}</div></div></ng-template>
+
+        <div class="form-group"><label class="form-label">Método de Pago</label><select class="form-control" [(ngModel)]="metodoPago" name="metodoPago"><option value="EFECTIVO">Efectivo</option><option value="TRANSFERENCIA">Transferencia</option><option value="TARJETA">Tarjeta</option></select></div>
+
+        <div class="transfer-card" *ngIf="metodoPago==='TRANSFERENCIA'">
+          <div class="qr-wrap"><img src="assets/img/qr-transferencia-apexfit.jpeg" alt="QR de transferencia APEXFIT"></div>
+          <div><h3>Datos para transferencia</h3><p><strong>Banco:</strong> Banco Pichincha</p><p><strong>Titular:</strong> APEXFIT GYM</p><p><strong>Cuenta:</strong> 2208493353</p><p><strong>Tipo:</strong> Corriente</p></div>
+        </div>
+
+        <div class="total"><span>Total a pagar</span><strong>${{obtenerTotalCarrito()|number:'1.2-2'}}</strong></div>
+        <button class="btn btn-primary checkout-btn" [disabled]="!carrito.length||!seleccionClienteId||procesandoCompra" (click)="confirmarCompra()">{{procesandoCompra?'Procesando...':'Completar Compra'}}</button>
+        <div *ngIf="compraMensaje" class="message" [ngClass]="compraExito?'success':'error'">{{compraMensaje}}</div>
+      </div>
+    </section>
+  </div>
+</div>

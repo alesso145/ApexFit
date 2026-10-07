@@ -1,0 +1,23 @@
+<div class="animate-fade-in">
+  <div class="page-head flex-between"><div><h1>Entrenadores</h1><p>Administración del equipo de entrenadores</p></div><button class="btn btn-primary" *ngIf="esAdmin()" (click)="abrirModalAdicion()">+ Nuevo Entrenador</button></div>
+  <div class="glass-card search-box"><span>⌕</span><input class="form-control" placeholder="Buscar por nombre, especialidad, cédula o username..." [(ngModel)]="filtroBusqueda" (input)="filtrarEntrenadores()"></div>
+  <div class="glass-card staff-box"><h2>Equipo</h2><div class="staff-grid"><div class="staff-card-mini" *ngFor="let ent of entrenadoresFiltrados"><div class="staff-avatar">🏋️</div><strong>{{ent.nombre}} {{ent.apellido}}</strong><small>{{ent.username || 'Sin cuenta'}}</small><span class="badge badge-info">{{ent.especialidad}}</span></div></div></div>
+  <div class="glass-card table-card"><div class="table-container"><table class="custom-table"><thead><tr><th>Cédula</th><th>Nombre</th><th>Username</th><th>Teléfono</th><th>Especialidad</th><th>Acciones</th></tr></thead><tbody>
+    <tr *ngFor="let ent of entrenadoresFiltrados"><td>{{ent.cedula}}</td><td>{{ent.nombre}} {{ent.apellido}}</td><td>{{ent.username || 'Sin cuenta'}}</td><td>{{ent.telefono}}</td><td><span class="badge badge-info">{{ent.especialidad}}</span></td><td class="actions" *ngIf="esAdmin()"><button class="btn btn-secondary" (click)="abrirModalEdicion(ent)">Editar</button><button class="btn btn-danger" (click)="confirmarEliminar(ent)">Eliminar</button></td><td *ngIf="!esAdmin()">Solo lectura</td></tr>
+    <tr *ngIf="entrenadoresFiltrados.length===0"><td colspan="6" class="empty">No se encontraron entrenadores.</td></tr>
+  </tbody></table></div></div>
+
+  <div class="modal-overlay" [class.active]="mostrarModalForm"><div class="modal-content account-modal"><div class="modal-header"><h3>{{esEdicion?'Editar Entrenador':'Nuevo Entrenador'}}</h3><button class="close-btn" (click)="cerrarModalForm()">×</button></div>
+    <form (ngSubmit)="guardarEntrenador()"><div class="modal-body form-grid">
+      <div class="form-error full" *ngIf="mensajeError">{{mensajeError}}</div>
+      <div class="form-group"><label class="form-label">Cédula / ID</label><input class="form-control" [(ngModel)]="model.cedula" name="cedula" required></div>
+      <div class="form-group"><label class="form-label">Nombre</label><input class="form-control" [(ngModel)]="model.nombre" name="nombre" required></div>
+      <div class="form-group"><label class="form-label">Apellido</label><input class="form-control" [(ngModel)]="model.apellido" name="apellido" required></div>
+      <div class="form-group"><label class="form-label">Teléfono</label><input class="form-control" [(ngModel)]="model.telefono" name="telefono"></div>
+      <div class="form-group full"><label class="form-label">Especialidad</label><input class="form-control" [(ngModel)]="model.especialidad" name="especialidad" required></div>
+      <div class="form-group"><label class="form-label">Username</label><input class="form-control" [(ngModel)]="model.username" name="username" required autocomplete="off"></div>
+      <div class="form-group"><label class="form-label">Password {{esEdicion?'(vacío = conservar)':''}}</label><input type="password" class="form-control" [(ngModel)]="model.password" name="password" [required]="!esEdicion" minlength="6" autocomplete="new-password"></div>
+    </div><div class="modal-footer"><button type="button" class="btn btn-secondary" (click)="cerrarModalForm()">Cancelar</button><button type="submit" class="btn btn-primary">{{esEdicion?'Actualizar':'Crear cuenta'}}</button></div></form>
+  </div></div>
+  <div class="modal-overlay" [class.active]="mostrarModalEliminar"><div class="modal-content confirm-modal"><div class="modal-header"><h3>Confirmar eliminación</h3></div><div class="modal-body"><p>¿Eliminar a <strong>{{entrenadorAEliminar?.nombre}} {{entrenadorAEliminar?.apellido}}</strong>?</p></div><div class="modal-footer"><button class="btn btn-secondary" (click)="mostrarModalEliminar=false">Cancelar</button><button class="btn btn-danger" (click)="eliminarEntrenador()">Eliminar</button></div></div></div>
+</div>

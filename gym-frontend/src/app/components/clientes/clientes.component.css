@@ -1,0 +1,8 @@
+.page-head{margin-bottom:2rem}.page-head h1{font-size:2.25rem}.page-head p{color:var(--text-secondary)}
+.search-box{padding:1rem;margin-bottom:1.5rem;display:flex;gap:1rem;align-items:center}.search-box span{font-size:1.4rem;color:var(--text-muted)}.search-box input{border:none;background:transparent}
+.staff-box{margin-bottom:1.5rem}.staff-box h2{font-size:1.2rem;margin-bottom:1rem}.staff-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1rem}.staff-card-mini{padding:1rem;border:1px solid var(--border-color);border-radius:var(--radius-md);display:flex;flex-direction:column;gap:.4rem}.staff-card-mini small{color:var(--text-muted)}
+.table-card{padding:0}.actions{display:flex;gap:.5rem;justify-content:flex-end}.empty{text-align:center;color:var(--text-muted);padding:3rem}.account-modal{width:min(94vw,720px)}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}.form-group{margin:0}.full{grid-column:1/-1}.check-row{display:flex;gap:.5rem;align-items:center}.close-btn{border:0;background:transparent;color:inherit;font-size:1.6rem;cursor:pointer}.confirm-modal{max-width:400px}
+@media(max-width:650px){.form-grid{grid-template-columns:1fr}.full{grid-column:auto}.page-head{align-items:flex-start;gap:1rem;flex-direction:column}.actions{justify-content:flex-start}}
+
+
+.form-error { width: 100%; padding: 10px 12px; border: 1px solid rgba(255, 80, 80, .45); border-radius: 8px; color: #ffb3b3; background: rgba(255, 60, 60, .10); font-size: .9rem; }

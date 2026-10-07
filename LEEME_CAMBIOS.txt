@@ -1,0 +1,21 @@
+CAMBIOS - VERSION 2
+(Versión 1) Dashboard con diagramas, CLIENTE se inscribe a mas clases en Asistencias, CLIENTE ve Punto de Venta en vez de Productos.
+
+NUEVO
+1. NOTIFICACIONES: campana junto al logo (arriba a la izquierda) con contador de no leidas, panel desplegable,
+   aviso emergente cuando llega una nueva (se actualiza cada 15 s). Se generan en:
+   - Venta del Punto de Venta  -> ADMIN y cliente
+   - Cliente se inscribe a una clase -> ADMIN, entrenador de la clase y cliente
+   - Nueva inscripcion de membresia -> ADMIN / cliente
+   - Cambio o recuperacion de contraseña -> el usuario (y ADMIN en recuperacion)
+2. PAGOS (ADMIN): ahora los pagos del POS aparecen en Pagos como "Producto", con detalle de productos,
+   filtro Todos/Membresias/Productos POS y boton "Recibo" que imprime un recibo detallado (producto, cantidad, precio, total).
+3. MI CUENTA: menu "Cambiar contraseña" para todos los roles (CLIENTE, ENTRENADOR, ADMIN).
+4. LOGIN: enlace "¿Olvidaste tu contraseña?". Se verifica USUARIO + CEDULA (la registrada en Clientes / Entrenadores).
+   Solo CLIENTE y ENTRENADOR. Bloqueo de 15 min tras 5 intentos fallidos. El ADMIN no puede recuperar por esta via.
+
+BASE DE DATOS: la tabla "notificacion" se crea sola (ddl-auto=update). No hay que ejecutar SQL.
+
+COMO EJECUTAR
+Backend (Spring Boot):  mvn spring-boot:run   (puerto 8081)  -> necesita PostgreSQL con la base "gymdbb"
+Frontend:  cd gym-frontend ; npm install ; npm start   -> http://localhost:4200

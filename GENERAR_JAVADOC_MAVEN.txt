@@ -1,0 +1,16 @@
+JAVA DOC MAVEN REAL
+
+1) Abrir PowerShell en la raíz del backend, donde está pom.xml.
+   Ejemplo:
+   cd C:\Users\DELL\Downloads\GymCRUD_APEXFIT_UNIDO_FINAL
+
+2) Si Maven está en PATH:
+   mvn clean javadoc:javadoc
+
+3) Si Maven está en Descargas:
+   & "C:\Users\DELL\Downloads\apache-maven-3.9.16-bin\apache-maven-3.9.16\bin\mvn.cmd" clean javadoc:javadoc
+
+4) Abrir:
+   start target\site\apidocs\index.html
+
+La interfaz correcta debe mostrar: Overview, Package, Class, Tree, Index y Help.

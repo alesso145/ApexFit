@@ -1,0 +1,66 @@
+<div class="animate-fade-in">
+  <div class="flex-between page-head">
+    <div><h1>Clientes</h1><p>Administración de miembros del gimnasio</p></div>
+    <button class="btn btn-primary" *ngIf="esAdmin()" (click)="abrirModalAdicion()">+ Nuevo Cliente</button>
+  </div>
+
+  <div class="glass-card search-box">
+    <span>⌕</span>
+    <input class="form-control" placeholder="Buscar por nombre, apellido, cédula o username..."
+           [(ngModel)]="filtroBusqueda" (input)="filtrarClientes()">
+  </div>
+
+  <div class="glass-card staff-box">
+    <h2>Staff de Entrenadores</h2>
+    <div class="staff-grid">
+      <div class="staff-card-mini" *ngFor="let ent of entrenadoresStaff">
+        <div class="staff-avatar">🏋️</div>
+        <strong>{{ ent.nombre }} {{ ent.apellido }}</strong>
+        <small>{{ ent.telefono }}</small>
+        <span class="badge badge-info">{{ ent.especialidad }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="glass-card table-card">
+    <div class="table-container">
+      <table class="custom-table">
+        <thead><tr><th>Cédula</th><th>Nombre</th><th>Username</th><th>Teléfono</th><th>Correo</th><th>Estado</th><th>Acciones</th></tr></thead>
+        <tbody>
+          <tr *ngFor="let c of clientesFiltrados">
+            <td>{{ c.cedula }}</td><td>{{ c.nombre }} {{ c.apellido }}</td><td>{{ c.username || 'Sin cuenta' }}</td>
+            <td>{{ c.telefono }}</td><td>{{ c.correo }}</td>
+            <td><span class="badge" [ngClass]="c.estado ? 'badge-success' : 'badge-danger'">{{ c.estado ? 'Activo' : 'Inactivo' }}</span></td>
+            <td class="actions" *ngIf="esAdmin()"><button class="btn btn-secondary" (click)="abrirModalEdicion(c)">Editar</button><button class="btn btn-danger" (click)="confirmarEliminar(c)">Eliminar</button></td>
+            <td *ngIf="!esAdmin()">Solo lectura</td>
+          </tr>
+          <tr *ngIf="clientesFiltrados.length === 0"><td colspan="7" class="empty">No se encontraron clientes.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="modal-overlay" [class.active]="mostrarModalForm">
+    <div class="modal-content account-modal">
+      <div class="modal-header"><h3>{{ esEdicion ? 'Editar Cliente' : 'Nuevo Cliente' }}</h3><button class="close-btn" (click)="cerrarModalForm()">×</button></div>
+      <form (ngSubmit)="guardarCliente()">
+        <div class="modal-body form-grid">
+          <div class="form-error full" *ngIf="mensajeError">{{ mensajeError }}</div>
+          <div class="form-group"><label class="form-label">Cédula / ID</label><input class="form-control" [(ngModel)]="model.cedula" name="cedula" required></div>
+          <div class="form-group"><label class="form-label">Nombre</label><input class="form-control" [(ngModel)]="model.nombre" name="nombre" required></div>
+          <div class="form-group"><label class="form-label">Apellido</label><input class="form-control" [(ngModel)]="model.apellido" name="apellido" required></div>
+          <div class="form-group"><label class="form-label">Teléfono</label><input class="form-control" [(ngModel)]="model.telefono" name="telefono"></div>
+          <div class="form-group full"><label class="form-label">Correo electrónico</label><input type="email" class="form-control" [(ngModel)]="model.correo" name="correo"></div>
+          <div class="form-group"><label class="form-label">Username</label><input class="form-control" [(ngModel)]="model.username" name="username" required autocomplete="off"></div>
+          <div class="form-group"><label class="form-label">Password {{ esEdicion ? '(dejar vacío para conservar)' : '' }}</label><input type="password" class="form-control" [(ngModel)]="model.password" name="password" [required]="!esEdicion" minlength="6" autocomplete="new-password"></div>
+          <label class="check-row full"><input type="checkbox" [(ngModel)]="model.estado" name="estado"> Cuenta activa</label>
+        </div>
+        <div class="modal-footer"><button type="button" class="btn btn-secondary" (click)="cerrarModalForm()">Cancelar</button><button type="submit" class="btn btn-primary">{{ esEdicion ? 'Actualizar' : 'Crear cuenta' }}</button></div>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal-overlay" [class.active]="mostrarModalEliminar">
+    <div class="modal-content confirm-modal"><div class="modal-header"><h3>Confirmar eliminación</h3></div><div class="modal-body"><p>¿Eliminar a <strong>{{ clienteAEliminar?.nombre }} {{ clienteAEliminar?.apellido }}</strong>?</p></div><div class="modal-footer"><button class="btn btn-secondary" (click)="mostrarModalEliminar=false">Cancelar</button><button class="btn btn-danger" (click)="eliminarCliente()">Eliminar</button></div></div>
+  </div>
+</div>
